@@ -5,3 +5,4 @@
 The propsed solution for the MVP:
 
 ![diagram-intial](./references/DataPipeline-InitialDraft.png)
+![diagram-final](./references/DataPipeline-FinalDraft.png)
