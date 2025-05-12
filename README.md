@@ -4,4 +4,4 @@
 
 The propsed solution for the MVP:
 
-![diagram - intial](./references/Data Pipeline - Initial Draft.png)
+![diagram-intial](./references/DataPipeline-InitialDraft.png)
