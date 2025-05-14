@@ -14,6 +14,11 @@ class Calculator:
 
     def do_divide(self):
         return self.a / self.b
+    
+    def times_table(self):  
+        """Generate the multiplication table for 'a' up to 'b'."""
+        for i in range(1, self.b + 1):
+            print(f"{self.a} × {i} = {self.a * i}")
 
 #myCalc = Calculator(11,6)
 #print("the answer is...", myCalc.do_sum())
