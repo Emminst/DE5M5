@@ -14,7 +14,7 @@ class TestOperations(unittest.TestCase):
         self.df['start_date'] = pd.to_datetime(self.df['start_date'], format='%d/%m/%Y')
         self.df['end_date'] = pd.to_datetime(self.df['end_date'], format='%d/%m/%Y')
 
-        self.df['date_delta'] = (self.df['end_date'] - self.df['start_date']).dt.days.astype(int)
+        self.df['date_delta'] = (self.df['end_date'] - self.df['start_date']).dt.days
                
     def test_duration_integer(self):
         self.assertTrue(is_integer_dtype(self.df['date_delta']), "Non-integer values found")
