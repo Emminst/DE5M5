@@ -15,5 +15,5 @@ class Calculator:
     def do_divide(self):
         return self.a / self.b
 
-myCalc = Calculator(11,6)
-print("the answer is...", myCalc.do_sum())
+#myCalc = Calculator(11,6)
+#print("the answer is...", myCalc.do_sum())
