@@ -17,8 +17,14 @@ class Calculator:
     
     def times_table(self):  
         """Generate the multiplication table for 'a' up to 'b'."""
+        results = []
         for i in range(1, self.b + 1):
-            print(f"{self.a} × {i} = {self.a * i}")
+            results.append(
+                {
+                    (f"{self.a} × {i} = {self.a * i}")
+                }
+            )
+        return results
 
 #myCalc = Calculator(11,6)
 #print("the answer is...", myCalc.do_sum())
