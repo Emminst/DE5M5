@@ -85,6 +85,18 @@ if __name__ == '__main__':
 
     data = fileLoader(filepath=filepath_input)
 
+    # Initialize invalid dates error counter
+    error_count = 0  
+
+    # Converting the date of purchase to date format
+    try: 
+        data['Book checkout'] = data['Book checkout'].str.replace('"', "", regex=True)
+        data['Book checkout'] = pd.to_datetime(data['Book checkout'], format='mixed' ) 
+        data.head()
+    except Exception as e:
+        error_count += 1  # Increment error counter
+        print(f'Error count: {error_count}, Error Occured: {e}')
+
     #count data before dropping duplicates
     initial_rows = len(data)
 
@@ -99,19 +111,23 @@ if __name__ == '__main__':
     dropped_row_count = initial_rows - final_rows
     print(f'Number of rows dropped: {dropped_row_count}')
 
-    # Initialize a counter for invalid dates
-    invalid_dates_count = 0
-
     # Converting date columns into datetime
     for col in date_columns:
         data = dateCleaner(col, data)
-
-        invalid_dates_count += data[col].isna().sum()
-
-    print(f'Total invalid dates identified: {invalid_dates_count}')
-    
+  
     # Enriching the dataset
     data = enrich_dateDuration(df=data, colA='Book Returned', colB='Book checkout')
+
+    # Calculate duration
+    data['Duration'] = (data['Book Returned'] - data['Book checkout']).dt.days
+    
+    # Identify negative durations
+    negative_rows = data[data['Duration'] < 0]
+
+    # Count negative entries
+    negative_count = len(negative_rows)
+
+    print(f'Total negative durations: {negative_count}')
 
     #data.to_csv('cleaned_file.csv')
     print(data)
