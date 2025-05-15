@@ -85,13 +85,30 @@ if __name__ == '__main__':
 
     data = fileLoader(filepath=filepath_input)
 
+    #count data before dropping duplicates
+    initial_rows = len(data)
+
     # Drop duplicates & NAs
     data = duplicateCleaner(data)
     data = naCleaner(data)
 
+    #count data after dropping duplicates
+    final_rows = len(data)
+
+    # Calculate number dropped rows
+    dropped_row_count = initial_rows - final_rows
+    print(f'Number of rows dropped: {dropped_row_count}')
+
+    # Initialize a counter for invalid dates
+    invalid_dates_count = 0
+
     # Converting date columns into datetime
     for col in date_columns:
         data = dateCleaner(col, data)
+
+        invalid_dates_count += data[col].isna().sum()
+
+    print(f'Total invalid dates identified: {invalid_dates_count}')
     
     # Enriching the dataset
     data = enrich_dateDuration(df=data, colA='Book Returned', colB='Book checkout')
