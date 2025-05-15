@@ -11,3 +11,7 @@ Initial Draft:
 Final Solution:
 
 ![diagram-final](./references/DataPipeline-FinalDraft.png)
+
+Kanban:
+
+![diagram-kanabn](./references/Kanban.png)
