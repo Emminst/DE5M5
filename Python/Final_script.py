@@ -129,8 +129,8 @@ if __name__ == '__main__':
 
     print(f'Total negative durations: {negative_count}')
 
-    #data.to_csv('cleaned_file.csv')
-    print(data)
+    data.to_csv('Python/Data/Books_cleaned.csv')
+    #print(data)
 
     #Cleaning the customer file
     filepath_input_2 = 'Python/Data/03_Library SystemCustomers.csv'
@@ -141,9 +141,11 @@ if __name__ == '__main__':
     data2 = duplicateCleaner(data2)
     data2 = naCleaner(data2)
 
-    print(data2)
-    print('**************** DATA CLEANED ****************')
+    data2.to_csv('Python/Data/Customers_cleaned.csv')
+    #print(data2)
+    #print('**************** DATA CLEANED ****************')
 
+    
 
     # print('Writing to SQL Server...')
 
