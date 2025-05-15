@@ -15,3 +15,7 @@ Final Solution:
 Kanban:
 
 ![diagram-kanabn](./references/Kanban.png)
+
+Power BI Dashboard:
+
+![diagram-PowerBI](./references/Dashboard.png)
